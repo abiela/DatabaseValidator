@@ -3,9 +3,9 @@ package com.databasevalidator.databasevalidator.filter.model;
 import android.content.Context;
 
 import com.databasevalidator.databasevalidator.filter.data_explore.DataSelector;
-import com.databasevalidator.databasevalidator.filter.model.realm.RealmRepositoryImpl;
-import com.databasevalidator.databasevalidator.filter.model.realm.StudentRealm;
+import com.databasevalidator.databasevalidator.filter.model.agds.AgdsRepositoryImpl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,18 +16,23 @@ import java.util.Map;
 public class FilterInteractorImpl implements IFilterInteractor {
 
     private Map<DatabaseType, IRepositoryInterface> databaseMap;
+    private boolean readyToUse;
+    private DatabaseCallback databaseCallback;
 
-    public FilterInteractorImpl(Context context) {
+    public FilterInteractorImpl(Context context, DatabaseCallback databaseCallback) {
+        this.databaseCallback = databaseCallback;
         setupDatabaseMap(context);
     }
 
     @Override
     public List<ResultItem> findSelectedItems(DatabaseType databaseType, DataSelector dataSelector) {
-        return null;
+        IRepositoryInterface selectedDatabase = databaseMap.get(databaseType);
+        return selectedDatabase.onDataSelectorTriggered(dataSelector);
     }
 
     private void setupDatabaseMap(Context context) {
         databaseMap = new HashMap<>();
-        databaseMap.put(DatabaseType.REALM, new RealmRepositoryImpl(StudentRealm.class, context));
+//        databaseMap.put(DatabaseType.REALM, new RealmRepositoryImpl(StudentRealm.class, context));
+        databaseMap.put(DatabaseType.AGDS, new AgdsRepositoryImpl(context, databaseCallback));
     }
 }

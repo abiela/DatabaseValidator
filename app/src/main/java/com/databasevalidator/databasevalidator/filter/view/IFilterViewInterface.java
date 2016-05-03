@@ -12,5 +12,4 @@ import java.util.List;
 public interface IFilterViewInterface {
 
     void showSelectedResults(List<ResultItem> resultItems);
-    Context getContext();
 }

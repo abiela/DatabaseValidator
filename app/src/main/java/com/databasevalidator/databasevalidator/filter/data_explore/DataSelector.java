@@ -12,10 +12,32 @@ public abstract class DataSelector {
         this.parameter = parameter;
     }
 
-    public static class MinSelector {
+    public int getParameter() {
+        return parameter;
+    }
 
-        public MinSelector(int parameter, int maxValue) {
-            super();
+    public static class AllData extends DataSelector {
+
+        public AllData(int parameter) {
+            super(parameter);
+        }
+    }
+
+    /**
+     * Data selector - min selector
+     */
+
+    public static class MinSelector extends DataSelector {
+
+        private double minValue;
+
+        public MinSelector(int parameter, double minValue) {
+            super(parameter);
+            this.minValue = minValue;
+        }
+
+        public double getMinValue() {
+            return minValue;
         }
     }
 

@@ -12,7 +12,7 @@ public class AddressRealm extends RealmObject {
     private long addressId;
 
     private String city;
-    private String streetName;
+    private String streetname;
 
     public long getAddressId() {
         return addressId;
@@ -30,11 +30,11 @@ public class AddressRealm extends RealmObject {
         this.city = city;
     }
 
-    public String getStreetName() {
-        return streetName;
+    public String getStreetname() {
+        return streetname;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public void setStreetname(String streetname) {
+        this.streetname = streetname;
     }
 }

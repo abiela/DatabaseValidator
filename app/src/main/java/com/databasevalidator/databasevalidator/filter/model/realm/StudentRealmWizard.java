@@ -39,7 +39,7 @@ public class StudentRealmWizard {
             AddressRealm addressRealm = realm.createObject(AddressRealm.class);
             addressRealm.setAddressId(i + 1);
             addressRealm.setCity(CITIES[i / 2]);
-            addressRealm.setStreetName(STREETNAMES[i]);
+            addressRealm.setStreetname(STREETNAMES[i]);
         }
         realm.commitTransaction();
         Log.d(C.LOG_TAG, "Address items in database: " + realm.where(AddressRealm.class).findAll().size());
@@ -55,7 +55,7 @@ public class StudentRealmWizard {
             studentRealm.setScholarshipAmount(100 + i * 100);
             studentRealm.setYearOfStudy(i + 1);
             studentRealm.setAddress(realm.where(AddressRealm.class).equalTo("addressId", (i % 3) + 1).findAll().first());
-            studentRealm.setFieldOfStudyRealm(realm.where(FieldOfStudyRealm.class).equalTo("fieldOfStudyId", (i % 2) + 1).findFirst());
+            studentRealm.setFieldOfStudy(realm.where(FieldOfStudyRealm.class).equalTo("fieldOfStudyId", (i % 2) + 1).findFirst());
         }
         realm.commitTransaction();
         Log.d(C.LOG_TAG, "Student items in database: " + realm.where(StudentRealm.class).findAll().size());

@@ -16,7 +16,7 @@ public class StudentRealm extends RealmObject {
     private int scholarshipAmount;
     private int yearOfStudy;
     private AddressRealm address;
-    private FieldOfStudyRealm fieldOfStudyRealm;
+    private FieldOfStudyRealm fieldOfStudy;
 
     public long getStudentId() {
         return studentId;
@@ -66,11 +66,11 @@ public class StudentRealm extends RealmObject {
         this.address = address;
     }
 
-    public FieldOfStudyRealm getFieldOfStudyRealm() {
-        return fieldOfStudyRealm;
+    public FieldOfStudyRealm getFieldOfStudy() {
+        return fieldOfStudy;
     }
 
-    public void setFieldOfStudyRealm(FieldOfStudyRealm fieldOfStudyRealm) {
-        this.fieldOfStudyRealm = fieldOfStudyRealm;
+    public void setFieldOfStudy(FieldOfStudyRealm fieldOfStudy) {
+        this.fieldOfStudy = fieldOfStudy;
     }
 }
