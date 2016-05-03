@@ -6,20 +6,19 @@ package com.databasevalidator.databasevalidator.filter.data_explore;
  */
 public abstract class DataSelector {
 
-    private int parameter;
+    private String attribute;
 
-    public DataSelector(int parameter) {
-        this.parameter = parameter;
+    public DataSelector(String attribute) {
+        this.attribute = attribute;
     }
 
-    public int getParameter() {
-        return parameter;
+    public String getAttribute() {
+        return attribute;
     }
 
     public static class AllData extends DataSelector {
-
-        public AllData(int parameter) {
-            super(parameter);
+        public AllData(String attribute) {
+            super(attribute);
         }
     }
 
@@ -28,20 +27,20 @@ public abstract class DataSelector {
      */
 
     public static class MinSelector extends DataSelector {
-
-        private double minValue;
-
-        public MinSelector(int parameter, double minValue) {
-            super(parameter);
-            this.minValue = minValue;
-        }
-
-        public double getMinValue() {
-            return minValue;
+        public MinSelector(String attribute) {
+            super(attribute);
         }
     }
 
-    public static class MaxSelector {
+    public static class MaxSelector extends DataSelector{
+        public MaxSelector(String attribute) {
+            super(attribute);
+        }
+    }
 
+    public static class SortSelector extends DataSelector{
+        public SortSelector(String attribute) {
+            super(attribute);
+        }
     }
 }

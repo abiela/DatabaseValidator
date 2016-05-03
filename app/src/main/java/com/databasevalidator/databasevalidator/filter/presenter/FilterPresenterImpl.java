@@ -31,7 +31,7 @@ public class FilterPresenterImpl implements IFilterPresenter {
         setupOnDatabaseReadyCallback();
         Log.d(C.LOG_TAG, "FilterPresenterImpl: constructing...");
         filterInteractor = new FilterInteractorImpl((Context) filterViewInterface, databaseCallback);
-        List<ResultItem> resultItems = filterInteractor.findSelectedItems(databaseType, new DataSelector.AllData(0));
+        List<ResultItem> resultItems = filterInteractor.findSelectedItems(databaseType, new DataSelector.AllData(""));
         filterViewInterface.showSelectedResults(resultItems);
     }
 

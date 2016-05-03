@@ -15,5 +15,9 @@ public interface IRepositoryInterface {
 
     List<ResultItem> onDataSelectorTriggered(DataSelector dataSelector);
 
-    List<ResultItem> getMin();
+    List<ResultItem> getMin(String attributeName);
+
+    List<ResultItem> getMax(String attributeName);
+
+    List<ResultItem> getSorted(String attributeName);
 }

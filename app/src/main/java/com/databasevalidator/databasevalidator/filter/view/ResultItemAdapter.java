@@ -82,9 +82,7 @@ public class ResultItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Log.d(C.LOG_TAG, "onBindViewHolder: ");
         if (holder instanceof IrisViewHolder) {
-            Log.d(C.LOG_TAG, "onBindViewHolder: inside Iris");
             ((IrisViewHolder) holder).leafLength.setText(((IrisResultItem) resultItemList.get(position)).getLeafLength().toString());
             ((IrisViewHolder) holder).leafWidth.setText(((IrisResultItem) resultItemList.get(position)).getLeafWidth().toString());
             ((IrisViewHolder) holder).petalLength.setText(((IrisResultItem) resultItemList.get(position)).getPetalLength().toString());

@@ -5,11 +5,11 @@ package com.databasevalidator.databasevalidator.filter.model;
  */
 public class IrisResultItem implements ResultItem {
 
-    private Double leafLength;
-    private Double leafWidth;
-    private Double petalLength;
-    private Double petalWidth;
-    private String className;
+    public Double leafLength;
+    public Double leafWidth;
+    public Double petalLength;
+    public Double petalWidth;
+    public String className;
 
     public IrisResultItem(Double leafLength, Double leafWidth, Double petalLength, Double petalWidth, String className) {
         this.leafLength = leafLength;

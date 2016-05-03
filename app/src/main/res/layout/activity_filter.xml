@@ -9,8 +9,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.databasevalidator.databasevalidator.FilterActivity">
 
+    <LinearLayout
+        android:id="@+id/activity_filter_action_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+
+            <Button
+                android:id="@+id/activity_filter_sort_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="Sort"/>
+
+            <Button
+                android:id="@+id/activity_filter_find_max_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="Find Max"/>
+
+            <Button
+                android:id="@+id/activity_filter_find_min_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="Find Min"/>
+        </LinearLayout>
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/item_result_list"
+        android:layout_below="@+id/activity_filter_action_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

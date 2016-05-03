@@ -52,14 +52,9 @@ public class RealmRepositoryImpl implements IRepositoryInterface {
     @Override
     public List<ResultItem> onDataSelectorTriggered(DataSelector dataSelector) {
         //TODO: Check by reflection if field name works
-        Log.d(C.LOG_TAG, StudentResultItem.class.getFields()[dataSelector.getParameter()].toString());
         return null;
     }
 
-    @Override
-    public List<ResultItem> getMin() {
-        return null;
-    }
 
     private void checkRealmInstance(Context context) {
 
@@ -86,5 +81,20 @@ public class RealmRepositoryImpl implements IRepositoryInterface {
             convertedResultItems.add(studentResultItem);
         }
         return convertedResultItems;
+    }
+
+    @Override
+    public List<ResultItem> getMin(String attributeName) {
+        return null;
+    }
+
+    @Override
+    public List<ResultItem> getMax(String attributeName) {
+        return null;
+    }
+
+    @Override
+    public List<ResultItem> getSorted(String attributeName) {
+        return null;
     }
 }
