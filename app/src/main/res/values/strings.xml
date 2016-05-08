@@ -3,6 +3,17 @@
 
     <string name="activity_filter_amount">Results found: %d</string>
 
+    <string name="iris_leaf_length">Leaf length</string>
+    <string name="iris_leaf_width">Leaf width</string>
+    <string name="iris_petal_length">Petal length</string>
+    <string name="iris_petal_width">Petal width</string>
+
+    <string name="min_value">Min value</string>
+    <string name="max_value">Max value</string>
+
+    <string name="fragment_dialog_amount">Number of elements</string>
+    <string name="percentage_rate">Percentage rate</string>
+
     <string name="database_action_show_all">Show all records</string>
     <string name="database_action_sort">Sort by attribute</string>
     <string name="database_action_find_max">Find max</string>
@@ -11,4 +22,5 @@
     <string name="database_action_find_least_similar">Find least similar</string>
     <string name="database_action_find_above_similairty">Find above similarity</string>
     <string name="database_action_find_below_similarity">Find below similarity</string>
+    <string name="database_action_find_in_range">Find in range</string>
 </resources>

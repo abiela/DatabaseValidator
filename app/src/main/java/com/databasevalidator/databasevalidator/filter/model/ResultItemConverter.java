@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface ResultItemConverter<T> {
 
-    List<ResultItem> toResultItem(T rawResult);
+    List<ResultItem> toResultItem(T rawResult, boolean withSimilarityRate);
 }

@@ -88,6 +88,12 @@ public class ResultItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             ((IrisViewHolder) holder).petalLength.setText(((IrisResultItem) resultItemList.get(position)).getPetalLength().toString());
             ((IrisViewHolder) holder).petalWidth.setText(((IrisResultItem) resultItemList.get(position)).getPetalWidth().toString());
             ((IrisViewHolder) holder).className.setText(((IrisResultItem) resultItemList.get(position)).getClassName());
+            if (((IrisResultItem) resultItemList.get(position)).getSimilarityRate() != null) {
+                ((IrisViewHolder) holder).similarityRate.setText(((IrisResultItem) resultItemList.get(position)).getSimilarityRate());
+            }
+            else {
+                ((IrisViewHolder) holder).similarityRate.setText("");
+            }
         }
     }
 

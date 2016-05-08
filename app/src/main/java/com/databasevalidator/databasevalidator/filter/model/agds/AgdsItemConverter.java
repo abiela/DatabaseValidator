@@ -17,7 +17,7 @@ public class AgdsItemConverter {
 
     public static final ResultItemConverter<List<RecordNode>> IRIS_CONVERTER = new ResultItemConverter<List<RecordNode>>() {
         @Override
-        public List<ResultItem> toResultItem(List<RecordNode> rawResult) {
+        public List<ResultItem> toResultItem(List<RecordNode> rawResult, boolean withSimilarityRate) {
             List<ResultItem> resultItemList = new ArrayList<>();
 
             for (RecordNode recordNode : rawResult) {
@@ -27,7 +27,8 @@ public class AgdsItemConverter {
                         valueNodeList.get(1).getValue(),
                         valueNodeList.get(2).getValue(),
                         valueNodeList.get(3).getValue(),
-                        recordNode.getClassNode().getClassName());
+                        recordNode.getClassNode().getClassName(),
+                        withSimilarityRate ? String.valueOf(recordNode.getTotalWage() * 100) + " %" : null);
                 resultItemList.add(irisResultItem);
             }
             return resultItemList;

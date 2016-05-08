@@ -44,7 +44,7 @@ public class AgdsRepositoryImpl implements IRepositoryInterface {
     @Override
     public List<ResultItem> getAllRecords() {
         List<RecordNode> allRecordsList = agdsInstance.findAll();
-        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(allRecordsList);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(allRecordsList, false);
     }
 
     @Override
@@ -65,24 +65,74 @@ public class AgdsRepositoryImpl implements IRepositoryInterface {
             return getSorted(dataSelector.getAttribute());
         }
 
+        else if (dataSelector instanceof DataSelector.FindMostSimilarSelector) {
+            return getMostSimilarElements(null, ((DataSelector.FindMostSimilarSelector) dataSelector).getLoadedElementValues(), ((DataSelector.FindMostSimilarSelector) dataSelector).getAmount());
+        }
+
+        else if (dataSelector instanceof DataSelector.FindLeastSimilarSelector) {
+            return getLeastSimilarElements(null, ((DataSelector.FindLeastSimilarSelector) dataSelector).getLoadedElementValues(), ((DataSelector.FindLeastSimilarSelector) dataSelector).getAmount());
+        }
+
+        else if (dataSelector instanceof DataSelector.FindAbovePercentageRateSelector) {
+            return getAboveSimiliratyRateElements(null, ((DataSelector.FindAbovePercentageRateSelector) dataSelector).getLoadedElementValues(), ((DataSelector.FindAbovePercentageRateSelector) dataSelector).getPercentageRate());
+        }
+
+        else if (dataSelector instanceof DataSelector.FindBelowPercentageRateSelector) {
+            return getBelowSimilarityRateElements(null, ((DataSelector.FindBelowPercentageRateSelector) dataSelector).getLoadedElementValues(), ((DataSelector.FindBelowPercentageRateSelector) dataSelector).getPercentageRate());
+        }
+
+        else if (dataSelector instanceof DataSelector.InRangeSelector) {
+            return getElementsInRange(dataSelector.getAttribute(), ((DataSelector.InRangeSelector) dataSelector).getMinValue(), ((DataSelector.InRangeSelector) dataSelector).getMaxValue());
+        }
+
         return null;
     }
 
     @Override
     public List<ResultItem> getMin(String attributeName) {
         List<RecordNode> minRecordsList = agdsInstance.findAttributeMin(attributeName);
-        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(minRecordsList);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(minRecordsList, false);
     }
 
     @Override
     public List<ResultItem> getMax(String attributeName) {
         List<RecordNode> maxRecordsList = agdsInstance.findAttributeMax(attributeName);
-        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(maxRecordsList);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(maxRecordsList, false);
     }
 
     @Override
     public List<ResultItem> getSorted(String attributeName) {
         List<RecordNode> maxRecordsList = agdsInstance.sortByAttribute(attributeName, Sort.DESCENDING);
-        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(maxRecordsList);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(maxRecordsList, false);
+    }
+
+    @Override
+    public List<ResultItem> getMostSimilarElements(String attributeName, double[] values, int amount) {
+        List<RecordNode> mostSimilarElements = agdsInstance.findMostSimilarElementsTotalWage(values, amount);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(mostSimilarElements, true);
+    }
+
+    @Override
+    public List<ResultItem> getLeastSimilarElements(String attributeName, double[] values, int amount) {
+        List<RecordNode> leastSimilarElements = agdsInstance.findLeastSimilarElementsTotalWage(values, amount);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(leastSimilarElements, true);
+    }
+
+    @Override
+    public List<ResultItem> getAboveSimiliratyRateElements(String attributeName, double[] values, float percentageRate) {
+        List<RecordNode> aboveSimilarityRateElements = agdsInstance.findAboveSimilarityRate(values, percentageRate);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(aboveSimilarityRateElements, true);
+    }
+
+    @Override
+    public List<ResultItem> getBelowSimilarityRateElements(String attributeName, double[] values, float percentageRate) {
+        List<RecordNode> belowSimilarityRateElements = agdsInstance.findBelowSimilarityRate(values, percentageRate);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(belowSimilarityRateElements, true);
+    }
+
+    @Override
+    public List<ResultItem> getElementsInRange(String atrributeName, double minValue, double maxValue) {
+        List<RecordNode> inRangeElements = agdsInstance.findInAttributeRange(atrributeName, minValue, maxValue);
+        return AgdsItemConverter.IRIS_CONVERTER.toResultItem(inRangeElements, false);
     }
 }

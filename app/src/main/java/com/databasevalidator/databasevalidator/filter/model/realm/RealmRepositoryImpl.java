@@ -97,4 +97,29 @@ public class RealmRepositoryImpl implements IRepositoryInterface {
     public List<ResultItem> getSorted(String attributeName) {
         return null;
     }
+
+    @Override
+    public List<ResultItem> getMostSimilarElements(String attributeName, double[] values, int amount) {
+        return null;
+    }
+
+    @Override
+    public List<ResultItem> getLeastSimilarElements(String attributeName, double[] values, int amount) {
+        return null;
+    }
+
+    @Override
+    public List<ResultItem> getAboveSimiliratyRateElements(String attributeName, double[] values, float percentageRate) {
+        return null;
+    }
+
+    @Override
+    public List<ResultItem> getBelowSimilarityRateElements(String attributeName, double[] values, float percentageRate) {
+        return null;
+    }
+
+    @Override
+    public List<ResultItem> getElementsInRange(String atrributeName, double minValue, double maxValue) {
+        return null;
+    }
 }

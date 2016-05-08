@@ -19,8 +19,13 @@ import com.databasevalidator.databasevalidator.filter.presenter.FilterPresenterI
 import com.databasevalidator.databasevalidator.filter.presenter.IFilterPresenter;
 import com.databasevalidator.databasevalidator.filter.utils.C;
 import com.databasevalidator.databasevalidator.filter.view.other.ClickListener;
+import com.databasevalidator.databasevalidator.filter.view.other.FindAbovePercentageRateFragmentDialog;
+import com.databasevalidator.databasevalidator.filter.view.other.FindBelowPercentageRateFragmentDialog;
+import com.databasevalidator.databasevalidator.filter.view.other.FindInRangeFragmentDialog;
+import com.databasevalidator.databasevalidator.filter.view.other.FindLeastSimilarFragmentDialog;
 import com.databasevalidator.databasevalidator.filter.view.other.FindMaxFragmentDialog;
 import com.databasevalidator.databasevalidator.filter.view.other.FindMinFragmentDialog;
+import com.databasevalidator.databasevalidator.filter.view.other.FindMostSimilarFragmentDialog;
 import com.databasevalidator.databasevalidator.filter.view.other.SortFragmentDialog;
 
 import java.util.ArrayList;
@@ -85,18 +90,37 @@ public class FilterActivity extends AppCompatActivity implements IFilterViewInte
             }
 
             case R.id.database_action_find_most_similar: {
+                FindMostSimilarFragmentDialog fragmentDialog = new FindMostSimilarFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "most_similar");
                 return true;
             }
 
             case R.id.database_action_find_least_similar: {
+                FindLeastSimilarFragmentDialog fragmentDialog = new FindLeastSimilarFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "least_similar");
                 return true;
             }
 
             case R.id.database_action_find_above_similarity: {
+                FindAbovePercentageRateFragmentDialog fragmentDialog = new FindAbovePercentageRateFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "find_above");
                 return true;
             }
 
             case R.id.database_action_find_below_similarity: {
+                FindBelowPercentageRateFragmentDialog fragmentDialog = new FindBelowPercentageRateFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "find_below");
+                return true;
+            }
+
+            case R.id.database_action_find_in_range: {
+                FindInRangeFragmentDialog fragmentDialog = new FindInRangeFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "find_in_range");
                 return true;
             }
 

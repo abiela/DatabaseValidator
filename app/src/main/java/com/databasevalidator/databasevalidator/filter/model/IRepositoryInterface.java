@@ -20,4 +20,14 @@ public interface IRepositoryInterface {
     List<ResultItem> getMax(String attributeName);
 
     List<ResultItem> getSorted(String attributeName);
+
+    List<ResultItem> getMostSimilarElements(String attributeName, double[] values, int amount);
+
+    List<ResultItem> getLeastSimilarElements(String attributeName, double[] values, int amount);
+
+    List<ResultItem> getAboveSimiliratyRateElements(String attributeName, double[] values, float percentageRate);
+
+    List<ResultItem> getBelowSimilarityRateElements(String attributeName, double[] values, float percentageRate);
+
+    List<ResultItem> getElementsInRange(String atrributeName, double minValue, double maxValue);
 }
