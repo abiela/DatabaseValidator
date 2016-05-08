@@ -11,13 +11,15 @@ public class IrisResultItem implements ResultItem {
     public Double petalWidth;
     public String similarityRate;
     public String className;
+    public String recordName;
 
-    public IrisResultItem(Double leafLength, Double leafWidth, Double petalLength, Double petalWidth, String className, String similarityRate) {
+    public IrisResultItem(Double leafLength, Double leafWidth, Double petalLength, Double petalWidth, String className, String recordName, String similarityRate) {
         this.leafLength = leafLength;
         this.leafWidth = leafWidth;
         this.petalLength = petalLength;
         this.petalWidth = petalWidth;
         this.className = className;
+        this.recordName = recordName;
         this.similarityRate = similarityRate;
     }
 
@@ -67,5 +69,9 @@ public class IrisResultItem implements ResultItem {
 
     public void setSimilarityRate(String similarityRate) {
         this.similarityRate = similarityRate;
+    }
+
+    public String getRecordName() {
+        return recordName;
     }
 }

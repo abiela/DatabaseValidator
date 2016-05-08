@@ -13,6 +13,8 @@
 
     <string name="fragment_dialog_amount">Number of elements</string>
     <string name="percentage_rate">Percentage rate</string>
+    <string name="similarity_rate">Similarity rate</string>
+    <string name="similarity_rate_value">%d %</string>
 
     <string name="database_action_show_all">Show all records</string>
     <string name="database_action_sort">Sort by attribute</string>

@@ -1,15 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    android:weightSum="10">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_result_iris_record_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:text="Record name"/>
+
+            <TextView
+                android:id="@+id/item_result_iris_class_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:text="Setosa"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_result_iris_similarity_rate_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/similarity_rate"/>
+
+            <TextView
+                android:id="@+id/item_result_iris_similarity_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:text="90%"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:weightSum="1">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="0.25"
         android:layout_marginRight="8dp"
         android:orientation="vertical">
 
@@ -23,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:layout_gravity="center"
             android:textColor="@color/black"
             tools:text="3.4"/>
     </LinearLayout>
@@ -30,7 +99,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="0.25"
         android:layout_marginRight="8dp"
         android:orientation="vertical">
 
@@ -45,13 +114,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:textColor="@color/black"
+            android:layout_gravity="center"
             tools:text="4.8"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="0.25"
         android:layout_marginRight="8dp"
         android:orientation="vertical">
 
@@ -66,14 +136,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:textColor="@color/black"
+            android:layout_gravity="center"
             tools:text="4.8"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_marginRight="8dp"
+        android:layout_weight="0.25"
         android:orientation="vertical">
 
         <TextView
@@ -87,36 +157,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:textColor="@color/black"
+            android:layout_gravity="center"
             tools:text="4.8"/>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:layout_marginRight="8dp"
-        android:weightSum="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/item_result_iris_class_name"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:text="Setosa"/>
-
-        <TextView
-            android:id="@+id/item_result_iris_similarity_rate"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:layout_margin="8dp"
-            android:textSize="18dp"
-            android:text="90%"/>
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
 </LinearLayout>

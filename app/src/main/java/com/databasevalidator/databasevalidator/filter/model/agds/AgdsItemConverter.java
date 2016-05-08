@@ -28,7 +28,8 @@ public class AgdsItemConverter {
                         valueNodeList.get(2).getValue(),
                         valueNodeList.get(3).getValue(),
                         recordNode.getClassNode().getClassName(),
-                        withSimilarityRate ? String.valueOf(recordNode.getTotalWage() * 100) + " %" : null);
+                        recordNode.getName(),
+                        withSimilarityRate ? String.format("%.3f", recordNode.getTotalWage() * 100) + " %" : null);
                 resultItemList.add(irisResultItem);
             }
             return resultItemList;

@@ -35,7 +35,7 @@ public class ResultItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public class IrisViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView leafLength, leafWidth, petalLength, petalWidth, className, similarityRate;
+        public TextView leafLength, leafWidth, petalLength, petalWidth, className, similarityRate, similarityRateText, recordName;
 
         public IrisViewHolder(View itemView) {
             super(itemView);
@@ -46,6 +46,8 @@ public class ResultItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             petalWidth = (TextView) itemView.findViewById(R.id.item_result_iris_petal_width);
             className = (TextView) itemView.findViewById(R.id.item_result_iris_class_name);
             similarityRate = (TextView) itemView.findViewById(R.id.item_result_iris_similarity_rate);
+            similarityRateText = (TextView) itemView.findViewById(R.id.item_result_iris_similarity_rate_text);
+            recordName = (TextView) itemView.findViewById(R.id.item_result_iris_record_name);
         }
     }
 
@@ -88,11 +90,14 @@ public class ResultItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             ((IrisViewHolder) holder).petalLength.setText(((IrisResultItem) resultItemList.get(position)).getPetalLength().toString());
             ((IrisViewHolder) holder).petalWidth.setText(((IrisResultItem) resultItemList.get(position)).getPetalWidth().toString());
             ((IrisViewHolder) holder).className.setText(((IrisResultItem) resultItemList.get(position)).getClassName());
+            ((IrisViewHolder) holder).recordName.setText(((IrisResultItem) resultItemList.get(position)).getRecordName());
             if (((IrisResultItem) resultItemList.get(position)).getSimilarityRate() != null) {
                 ((IrisViewHolder) holder).similarityRate.setText(((IrisResultItem) resultItemList.get(position)).getSimilarityRate());
+                ((IrisViewHolder) holder).similarityRateText.setVisibility(View.VISIBLE);
             }
             else {
                 ((IrisViewHolder) holder).similarityRate.setText("");
+                ((IrisViewHolder) holder).similarityRateText.setVisibility(View.INVISIBLE);
             }
         }
     }
