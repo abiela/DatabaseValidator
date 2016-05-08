@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.databasevalidator.databasevalidator.R;
 import com.databasevalidator.databasevalidator.filter.data_explore.DataSelector;
@@ -23,6 +26,7 @@ import com.databasevalidator.databasevalidator.filter.view.other.SortFragmentDia
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -32,6 +36,8 @@ public class FilterActivity extends AppCompatActivity implements IFilterViewInte
     private RecyclerView resultItemList;
     private ResultItemAdapter resultItemAdapter;
     private ClickListener dataClickListener;
+
+    @Bind(R.id.item_result_amount) TextView resultAmountTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +50,67 @@ public class FilterActivity extends AppCompatActivity implements IFilterViewInte
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.database_action_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.database_action_show_all: {
+                filterPresenter.onDataExploringTypeSelected(new DataSelector.AllData(null));
+                return true;
+            }
+
+            case R.id.database_action_sort: {
+                SortFragmentDialog fragmentDialog = new SortFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "sort");
+                return true;
+            }
+
+            case R.id.database_action_find_max: {
+                FindMaxFragmentDialog fragmentDialog = new FindMaxFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "dialog_max");
+                return true;
+            }
+
+            case R.id.database_action_find_min: {
+                FindMinFragmentDialog fragmentDialog =  new FindMinFragmentDialog();
+                fragmentDialog.setClickListener(dataClickListener);
+                fragmentDialog.show(getFragmentManager(), "dialog_min");
+                return true;
+            }
+
+            case R.id.database_action_find_most_similar: {
+                return true;
+            }
+
+            case R.id.database_action_find_least_similar: {
+                return true;
+            }
+
+            case R.id.database_action_find_above_similarity: {
+                return true;
+            }
+
+            case R.id.database_action_find_below_similarity: {
+                return true;
+            }
+
+            default: {
+                return super.onOptionsItemSelected(item);
+            }
+        }
+    }
+
+    @Override
     public void showSelectedResults(List<ResultItem> resultItems) {
         Log.d(C.LOG_TAG, "Results to be shown: " + resultItems.size());
         resultItemAdapter.updateItems(resultItems);
+        changeResultAmount(resultItems.size());
     }
 
     private void setupPresenter() {
@@ -60,39 +124,10 @@ public class FilterActivity extends AppCompatActivity implements IFilterViewInte
         resultItemList.setAdapter(resultItemAdapter);
     }
 
-    @OnClick ({R.id.activity_filter_find_min_button, R.id.activity_filter_find_max_button, R.id.activity_filter_sort_button})
-    void onActionClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.activity_filter_find_min_button: {
-                FindMinFragmentDialog fragmentDialog =  new FindMinFragmentDialog();
-                fragmentDialog.setClickListener(dataClickListener);
-                fragmentDialog.show(getFragmentManager(), "dialog_min");
-                break;
-            }
-
-            case R.id.activity_filter_find_max_button: {
-                FindMaxFragmentDialog fragmentDialog = new FindMaxFragmentDialog();
-                fragmentDialog.setClickListener(dataClickListener);
-                fragmentDialog.show(getFragmentManager(), "dialog_max");
-                break;
-            }
-
-            case R.id.activity_filter_sort_button: {
-                SortFragmentDialog fragmentDialog = new SortFragmentDialog();
-                fragmentDialog.setClickListener(dataClickListener);
-                fragmentDialog.show(getFragmentManager(), "sort");
-                break;
-            }
-            default: {
-                FindMinFragmentDialog fragmentDialog =  new FindMinFragmentDialog();
-                fragmentDialog.setClickListener(dataClickListener);
-                fragmentDialog.show(getFragmentManager(), "dialog_min");
-                break;
-            }
-        }
-
+    private void changeResultAmount(int resultAmount) {
+        resultAmountTextView.setText(getString(R.string.activity_filter_amount, resultAmount));
     }
+
 
     private void setupClickListener() {
         dataClickListener = new ClickListener() {

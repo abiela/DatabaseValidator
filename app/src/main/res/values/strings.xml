@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DatabaseValidator</string>
+
+    <string name="activity_filter_amount">Results found: %d</string>
+
+    <string name="database_action_show_all">Show all records</string>
+    <string name="database_action_sort">Sort by attribute</string>
+    <string name="database_action_find_max">Find max</string>
+    <string name="database_action_find_min">Find min</string>
+    <string name="database_action_find_most_similar">Find most similar</string>
+    <string name="database_action_find_least_similar">Find least similar</string>
+    <string name="database_action_find_above_similairty">Find above similarity</string>
+    <string name="database_action_find_below_similarity">Find below similarity</string>
 </resources>

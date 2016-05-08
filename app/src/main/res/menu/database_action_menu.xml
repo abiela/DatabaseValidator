@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/database_action_show_all"
+        android:title="@string/database_action_show_all"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_sort"
+        android:title="@string/database_action_sort"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_find_max"
+        android:title="@string/database_action_find_max"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_find_min"
+        android:title="@string/database_action_find_min"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_find_most_similar"
+        android:title="@string/database_action_find_most_similar"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_find_least_similar"
+        android:title="@string/database_action_find_least_similar"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_find_above_similarity"
+        android:title="@string/database_action_find_above_similairty"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/database_action_find_below_similarity"
+        android:title="@string/database_action_find_below_similarity"
+        app:showAsAction="never"/>
+</menu>
