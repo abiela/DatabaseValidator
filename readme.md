@@ -13,7 +13,7 @@ AGDS library and its' visualization is presented on top of **Android** applicati
 
 **Android application with AGDS algorithm is performed on well-known [Iris dataset](https://archive.ics.uci.edu/ml/datasets/iris).**
 
-![application gif](../readme/application.gif)
+![application gif](./readme/application.gif)
 
 ### Available features
 
@@ -57,4 +57,4 @@ You can also build your own application on top of AGDS library. You can find it 
 
 ## 🤜🤛🏼 Contribution
 
-Would you like to take part in the project and contribute? 🚧 Feel free to create a pull request, I would be more than happy to add it to my project and collaborate!
+Would you like to take part in the project and contribute? Feel free to [create a pull request](../../pulls), I would be more than happy to add it to my project and collaborate!
